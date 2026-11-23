@@ -26,21 +26,40 @@ void Buscar_E(enlace** Enlaces, int * cantidad){
 
 
 
+/*
+modificacion de funcion Agregar_E.
+Parametros: recibe el arreglo de enlaces y la cantidad de elementos.
+Entrada: nombre, frecuencia y potencia del nuevo enlace.
+Salida: incorpora un nuevo enlace al arreglo.
+Comportamiento: reserva memoria adicional y carga los datos del nuevo enlace y Comprobamos si la reserva de memoria falló.
+*/
+
 void Agregar_E(enlace** Enlaces, int * cantidad){
-	
-	(*cantidad)++;   
-	
-	*Enlaces = (enlace*)realloc(*Enlaces, (*cantidad) * sizeof(enlace));
-	
-	printf("\nIngrese el nombre del enlace: ");
-	scanf("%39s", (*Enlaces)[*cantidad - 1].nomEnlace);
-	
-	printf("\nIngrese la frecuencia: ");
-	scanf("%d", &(*Enlaces)[*cantidad - 1].frecuencia);
-	
-	printf("\nIngrese la potencia: ");
-	scanf("%d", &(*Enlaces)[*cantidad - 1].potencia);
-	
+
+    enlace *auxiliar;
+
+    auxiliar = (enlace*)realloc(*Enlaces, (*cantidad + 1) * sizeof(enlace));
+
+    if(auxiliar == NULL){
+
+        printf("\nError al reservar memoria\n");
+
+        return;
+    }
+
+    *Enlaces = auxiliar;
+
+    (*cantidad)++;
+
+    printf("\nIngrese el nombre del enlace: ");
+    scanf("%39s", (*Enlaces)[*cantidad - 1].nomEnlace);
+
+    printf("\nIngrese la frecuencia: ");
+    scanf("%d", &(*Enlaces)[*cantidad - 1].frecuencia);
+
+    printf("\nIngrese la potencia: ");
+    scanf("%d", &(*Enlaces)[*cantidad - 1].potencia);
+
 }
 	
 	
@@ -147,6 +166,7 @@ void Mostrar_P(enlace** Enlaces, int * cantidad){
 		}while(opcion!=6);
 		
 		
+
 		
 		return 0;
 	}
