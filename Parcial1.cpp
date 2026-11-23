@@ -128,8 +128,16 @@ void Mostrar_P(enlace** Enlaces, int * cantidad){
 		
 		printf("Ingrese cantidad de enlaces: \n ");
 		scanf("%d", &cantidad);
-		
-		Enlaces=(enlace*)malloc(cantidad * sizeof(enlace));
+
+		/*  aca tambien se modifica para Comprobar si la reserva de memoria fue exitosa.*/
+		Enlaces = (enlace*)malloc(cantidad * sizeof(enlace));
+
+if(Enlaces == NULL){
+
+    printf("\nError al reservar memoria\n");
+
+    return 1;
+}
 		
 		
 		/*llenar enlaces */
@@ -170,3 +178,4 @@ void Mostrar_P(enlace** Enlaces, int * cantidad){
 		
 		return 0;
 	}
+
