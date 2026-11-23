@@ -14,7 +14,10 @@ void Buscar_E(enlace** Enlaces, int * cantidad){
 	char nenlace[40];
 	int i;
 	printf("\nIngrese el enlace a buscar:\n");
-	scanf("%s",&nenlace);
+	/* modificacion de la lectura de texto*/
+	scanf("%39s", nenlace);
+
+	
 	for(i=0;i<(*cantidad);i++)
 	{
 		if ( strcmp((*Enlaces)[i].nomEnlace,nenlace) == 0 )
@@ -149,7 +152,11 @@ if(Enlaces == NULL){
 		for(i=0;i<cantidad;i++){
 			
 			printf("Ingrese el nombre del enlace:\n");
-			scanf("%s",&Enlaces[i].nomEnlace);
+
+			/* modificacion de la lectura de texto*/
+			scanf("%39s", Enlaces[i].nomEnlace);
+
+			
 			printf("\nIngrese la frecuencia\n");
 			scanf("%i",&Enlaces[i].frecuencia);
 			printf("Ingrese la potencia:\n ");
@@ -183,5 +190,6 @@ if(Enlaces == NULL){
 		
 		return 0;
 	}
+
 
 
