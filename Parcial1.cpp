@@ -10,6 +10,14 @@ typedef struct enlace{
 	int potencia;
 }enlace;
 
+
+/*
+Funcion: Buscar_E
+Parametros: recibe el arreglo de enlaces y la cantidad de elementos.
+Entrada: nombre del enlace que se desea buscar.
+Salida: muestra los datos del enlace encontrado.
+Comportamiento: recorre el arreglo y compara los nombres de los enlaces.
+*/
 void Buscar_E(enlace** Enlaces, int * cantidad){
 	char nenlace[40];
 	int i;
@@ -30,11 +38,11 @@ void Buscar_E(enlace** Enlaces, int * cantidad){
 
 
 /*
-modificacion de funcion Agregar_E.
+Funcion: Agregar_E
 Parametros: recibe el arreglo de enlaces y la cantidad de elementos.
 Entrada: nombre, frecuencia y potencia del nuevo enlace.
 Salida: incorpora un nuevo enlace al arreglo.
-Comportamiento: reserva memoria adicional y carga los datos del nuevo enlace y Comprobamos si la reserva de memoria falló.
+Comportamiento: reserva memoria y carga los datos del nuevo enlace.
 */
 
 void Agregar_E(enlace** Enlaces, int * cantidad){
@@ -64,7 +72,13 @@ void Agregar_E(enlace** Enlaces, int * cantidad){
     scanf("%d", &(*Enlaces)[*cantidad - 1].potencia);
 
 }
-	
+	/*
+Funcion: Mostrar_E
+Parametros: recibe el arreglo de enlaces y la cantidad de elementos.
+Entrada: no requiere datos adicionales.
+Salida: muestra los datos de todos los enlaces.
+Comportamiento: recorre el arreglo y muestra cada enlace.
+*/
 	
 	void Mostrar_E(enlace** Enlaces, int * cantidad){
 		int i;
@@ -79,7 +93,13 @@ void Agregar_E(enlace** Enlaces, int * cantidad){
 	}
 		
 		
-		
+		/*
+Funcion: Mostrar_P
+Parametros: recibe el arreglo de enlaces y la cantidad de elementos.
+Entrada: potencia solicitada y porcentaje de cercania.
+Salida: muestra los enlaces que cumplen con el rango de potencia.
+Comportamiento: calcula un margen de tolerancia y compara las potencias.
+*/
 		
 void Mostrar_P(enlace** Enlaces, int * cantidad){
 	
@@ -190,6 +210,7 @@ if(Enlaces == NULL){
 		
 		return 0;
 	}
+
 
 
 
