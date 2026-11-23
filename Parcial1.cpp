@@ -125,10 +125,15 @@ void Mostrar_P(enlace** Enlaces, int * cantidad){
 		int cantidad;
 		enlace* Enlaces;
 		
-		
-		printf("Ingrese cantidad de enlaces: \n ");
-		scanf("%d", &cantidad);
+	/*  aca tambien se modifica para Comprobamos que el usuario haya ingresado un número entero.Evitamos aceptar cantidades iguales o menores a cero.Evitamos continuar con datos inválidos.*/	
+	printf("Ingrese cantidad de enlaces: \n ");
 
+if(scanf("%d", &cantidad) != 1 || cantidad <= 0){
+
+    printf("\nCantidad de enlaces invalida\n");
+
+    return 1;
+}
 		/*  aca tambien se modifica para Comprobar si la reserva de memoria fue exitosa.*/
 		Enlaces = (enlace*)malloc(cantidad * sizeof(enlace));
 
@@ -178,4 +183,5 @@ if(Enlaces == NULL){
 		
 		return 0;
 	}
+
 
